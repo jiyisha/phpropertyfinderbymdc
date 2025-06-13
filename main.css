@@ -1,0 +1,232 @@
+/* Hide scrollbar but keep functionality */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0a1f3a;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+body{
+ background-color: #eaeaea;
+}
+
+
+body::-webkit-scrollbar {
+    display: none; 
+}
+
+p {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.intro {
+      background: transparent;
+    width: calc(100% - 20px);
+    max-width: 1200px;
+    height: 300px;
+    min-height: 250px;
+    margin: 100px auto 10px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(1,1,1,0.4);
+   position: relative;
+    background: transparent;
+    border: none; /* Remove any existing border */
+}
+.intro::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 12px;
+    z-index: -1;
+    background: linear-gradient(90deg, 
+        blue 0%, 
+        red 25%, 
+        blue 50%, 
+        red 75%, 
+        blue 100%);
+    background-size: 200% 100%;
+    animation: borderScroll 5s linear infinite;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 2px; /* Border thickness */
+    box-shadow: 
+        0 0 8px blue,
+        0 0 16px rgba(255, 0, 0, 0.7),
+        0 0 24px rgba(0, 0, 255, 0.5);
+
+    filter: blur(0.5px) brightness(1.3);
+}
+
+@keyframes borderScroll {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}
+.contents {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color:#0a1f3a;
+}
+
+.main-house {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+}
+
+.main-house-icon {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0;
+    padding: 5px;
+    margin-right: 0;
+}
+
+.welcome {
+    font-weight: bold;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: clamp(16px, 3vw, 24px);
+}
+
+.hook {
+    font-weight: bold;
+    font-size: clamp(24px, 6vw, 50px);
+    margin: 5px 0;
+}
+
+.description {
+    margin: 0;
+    font-size: clamp(14px, 2vw, 18px);
+}
+
+@media (min-width: 768px) {
+    .intro {
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+    .contents {
+        width: 70%;
+        padding: 30px 50px;
+        padding-top: 50px;
+    }
+    .main-house {
+        width: 30%;
+    }
+    .main-house-icon {
+        width: 400px;
+        height: 500px;
+        margin: -120px 10px 0 0;
+    }
+}
+
+
+.reco {
+    margin: 80px 30px 20px;
+    font-weight: 700;
+    font-size: clamp(18px, 2vw, 24px);
+    color: #0a1f3a;
+    text-align: center;
+}
+
+.book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto; 
+    margin-bottom: 100px;
+    border-radius: 25px;
+    padding: 10px 40px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    background-color: #0a1f3a;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.book:hover {
+    background-color: transparent;
+    border: 2px solid #0a1f3a;
+    color: #0a1f3a;
+    transform: translateY(-3px); /* Moves button up slightly on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Enhanced shadow for lifted effect */
+}
+
+.book:active {
+    transform: translateY(1px); /* Pressed-down effect when clicked */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Flatter shadow when active */
+}
+
+/* About Us - Minimalist Text Only */
+#about {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#about h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #0a1f3a; /* Your dark blue color */
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+#about p {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.2rem;
+}
+
+/* Company name emphasis */
+#about p strong {
+  color: #0a1f3a;
+  font-weight: 600;
+}
+
+/* Tagline styling */
+#about p:last-child {
+  font-style: italic;
+  color: #0a1f3a;
+  margin-top: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #about {
+    padding: 0 1rem;
+  }
+  #about h2 {
+    font-size: 1.8rem;
+  }
+  #about p {
+    font-size: 1rem;
+  }
+}

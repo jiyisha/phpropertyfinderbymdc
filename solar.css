@@ -1,0 +1,190 @@
+body {
+  background: #eaeaea;
+}
+
+
+.logo-description-container {
+  display: flex;
+  align-items: center;
+  max-width: 1100px;
+  height: 300px;
+  min-height: 300px;
+  margin: 100px auto;
+  border-radius: 30px;
+  padding: 0 20px;
+  gap: 40px;
+  background-color: transparent;
+  position: relative;
+  isolation: isolate;
+}
+
+.logo-description-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 32px;
+  z-index: -1;
+  background: linear-gradient(90deg, 
+    blue 0%, 
+    red 25%, 
+    blue 50%, 
+    red 75%, 
+    blue 100%);
+  background-size: 200% 100%;
+  animation: borderScroll 3s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 2px;
+  box-shadow: 
+    0 0 10px rgba(0, 0, 255, 0.8),
+    0 0 20px rgba(255, 0, 0, 0.6);
+  filter: blur(0.8px);
+}
+
+.logo-container {
+  flex: 0 0 auto;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+}
+
+.logo-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; 
+  margin-top: 0px;
+  margin-left: -60px;
+}
+
+.description-container {
+  flex: 1;
+  color: #333;
+  width: 700px;
+  position: relative;
+  z-index: 1;
+}
+
+.description-container p {
+  margin-left: -100px;
+  font-size: 20px;
+}
+
+@keyframes borderScroll {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+.properties-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.properties-title {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #333;
+  font-size: 28px;
+  margin-top: -80px;
+}
+
+.properties-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.properties-scroller {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.properties-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-btn {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-btn.left {
+  left: -20px;
+}
+
+.scroll-btn.right {
+  right: -20px;
+}
+
+.property-card {
+  width: 300px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.property-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-image {
+  transform: scale(1.05);
+}
+
+.property-info {
+  padding: 15px;
+  text-align: center;
+  background: white;
+}
+
+.property-name {
+  margin: 0;
+  color: #222;
+  font-size: 18px;
+}
